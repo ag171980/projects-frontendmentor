@@ -1,7 +1,12 @@
 import logo from './logo.svg';
+import Octokit from 'octokit'
 import './App.css';
 
 function App() {
+
+  const octokit = new Octokit({
+    auth: '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'
+  });
   return (
     <div className="App">
       <header className="App-header">
