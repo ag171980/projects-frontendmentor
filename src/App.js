@@ -44,8 +44,15 @@ function App() {
 
               <h3>{repo.name}</h3>
               <div className='description-repo'>
+
                 <button onClick={() => handleClick(index)}>Click to clone</button>
                 <p className='url_repo' style={{ display: "none" }}>{repo.clone_url}</p>
+              </div>
+              <div className='detail-repo'>
+                {
+                  repo.topics.map((topic) =>
+                    <p>{topic}</p>)
+                }
               </div>
             </div>
           )
