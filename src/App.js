@@ -1,5 +1,6 @@
 import logo from './logo.svg';
-
+import { AiOutlineEye } from 'react-icons/ai'
+import { TbHandClick } from 'react-icons/tb'
 import axios from 'axios'
 import './App.css';
 import { useState } from 'react';
@@ -42,17 +43,22 @@ function App() {
           repos.map((repo, index) =>
             <div className='repository' key={index}>
 
-              <h3>{repo.name}</h3>
-              <div className='description-repo'>
-
-                <button onClick={() => handleClick(index)}>Click to clone</button>
-                <p className='url_repo' style={{ display: "none" }}>{repo.clone_url}</p>
+              <div className='data-repo'>
+                <h3>{repo.name}</h3>
+                <p>{repo.description}</p>
               </div>
               <div className='detail-repo'>
                 {
                   repo.topics.map((topic) =>
-                    <p>{topic}</p>)
+                    <p>#{topic}</p>)
                 }
+              </div>
+              <div className='description-repo'>
+                <div className='buttons'>
+                  <button title='View repository'><a href={repo.html_url} target="_blank"> <AiOutlineEye /> Repo</a></button>
+                  <button title='Click view Demo'><a href={repo.homepage} target="_blank"><TbHandClick /> Demo </a></button>
+                </div>
+                <p className='url_repo' style={{ display: "none" }}>{repo.clone_url}</p>
               </div>
             </div>
           )

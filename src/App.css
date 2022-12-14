@@ -1,17 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 .App {
-  background-color: #1C1C1C;
+  /* background-image: linear-gradient(to left bottom, #f89999, #f89d9c, #f8a19f, #f7a4a3, #f7a8a6, #f7aba9, #f7afab, #f7b2ae, #f7b6b1, #f7b9b4, #f6bdb7, #f6c0ba); */
+  background-image: linear-gradient(to right top, #663177, #703278, #793379, #823579, #8b3679, #93377a, #9a387a, #a2397a, #ab3a7b, #b43c7b, #bd3d7b, #c63f7b);
 }
 
 .App h1 {
   color: white;
   text-align: center;
   padding: 20px 0;
+  font-weight: 600;
 }
 
 .repositories {
@@ -23,11 +29,110 @@
 }
 
 .repository {
-  height: 200px;
-  width: 250px;
-  background-color: #6F6F6F;
+  height: 250px;
+  width: 350px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+
+
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.32);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.9px);
+  -webkit-backdrop-filter: blur(3.9px);
+  border: 1px solid rgba(255, 255, 255, 0.31);
+  color: #DADADA;
+  transition: 0.3s all;
+}
+
+.repository:hover {
+  border-radius: 0px;
+  transform: scale(1.05);
+}
+
+.repository h3 {
+  font-weight: 600;
+  text-align: start;
+
+}
+
+.repository .data-repo p {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.description-repo {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-repo {
+  display: flex;
+}
+
+.detail-repo p {
+  font-size: 14px;
+  padding: 0 2px;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.buttons a {
+  text-decoration: none;
+  color: black;
+}
+
+.buttons button,
+.buttons a button {
+  width: 45%;
+  margin: 0 5px;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s all;
+}
+
+.buttons button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.buttons button:first-child {}
+
+.buttons button:last-child {
+  background-color: #00BD28;
+  color: white;
+}
+.buttons button:last-child a{
+  color: white;
+}
+
+@media (max-width:1090px) {
+  .repositories {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media (max-width:720px) {
+  .repositories {
+    grid-template-columns: auto;
+  }
 }
