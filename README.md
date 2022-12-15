@@ -15,4 +15,8 @@ This project was created with [React Js](https://es.reactjs.org/).
 
 ## Screenshot
 
-![Captura de pantalla de como se ve la pagina](https://github.com/ag171980/projects-frontendmentor/screen_frontendmentor.png)
+![Captura de pantalla de como se ve la pagina](https://github.com/ag171980/projects-frontendmentor/blob/main/screen_frontendmentor.png)
+
+## Demo live
+
+[Link to demo](https://projects-frontendmentor.netlify.app/)
