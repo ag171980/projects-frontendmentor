@@ -4,6 +4,7 @@ import { TbHandClick } from 'react-icons/tb'
 import axios from 'axios'
 import './App.css';
 import { useState } from 'react';
+import {Animated} from "react-animated-css";
 
 function App() {
   const [load, setLoad] = useState(false)
@@ -22,7 +23,7 @@ function App() {
       console.log("error: ", error.message)
     }
   }
-  
+
   if (!load) {
     getRepos()
   }
@@ -32,26 +33,28 @@ function App() {
       <div className='repositories'>
         {repos &&
           repos.map((repo, index) =>
-            <div className='repository' key={index}>
+            <Animated animationIn="fadeIn" isVisible={true}>
+              <div className='repository' key={index}>
 
-              <div className='data-repo'>
-                <h3>{repo.name}</h3>
-                <p>{repo.description}</p>
-              </div>
-              <div className='detail-repo'>
-                {
-                  repo.topics.map((topic) =>
-                    <p>#{topic}</p>)
-                }
-              </div>
-              <div className='description-repo'>
-                <div className='buttons'>
-                  <button title='View repository'><a href={repo.html_url} target="_blank" rel="noreferrer"> <AiOutlineEye /> Repo</a></button>
-                  <button title='Click view Demo'><a href={repo.homepage} target="_blank" rel="noreferrer"><TbHandClick /> Demo </a></button>
+                <div className='data-repo'>
+                  <h3>{repo.name}</h3>
+                  <p>{repo.description}</p>
                 </div>
-                <p className='url_repo' style={{ display: "none" }}>{repo.clone_url}</p>
+                <div className='detail-repo'>
+                  {
+                    repo.topics.map((topic) =>
+                      <p>#{topic}</p>)
+                  }
+                </div>
+                <div className='description-repo'>
+                  <div className='buttons'>
+                    <button title='View repository'><a href={repo.html_url} target="_blank" rel="noreferrer"> <AiOutlineEye /> Repo</a></button>
+                    <button title='Click view Demo'><a href={repo.homepage} target="_blank" rel="noreferrer"><TbHandClick /> Demo </a></button>
+                  </div>
+                  <p className='url_repo' style={{ display: "none" }}>{repo.clone_url}</p>
+                </div>
               </div>
-            </div>
+            </Animated>
           )
         }
       </div>
