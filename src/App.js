@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import { AiOutlineEye } from 'react-icons/ai'
 import { TbHandClick } from 'react-icons/tb'
 import axios from 'axios'
@@ -22,16 +22,7 @@ function App() {
       console.log("error: ", error.message)
     }
   }
-  const handleClick = (index) => {
-    const asd = document.getElementsByClassName("url_repo")[index].innerHTML
-
-    var aux = document.createElement("input");
-    aux.setAttribute("value", asd);
-    document.body.appendChild(aux);
-    aux.select();
-    document.execCommand("copy");
-    document.body.removeChild(aux);
-  }
+  
   if (!load) {
     getRepos()
   }
@@ -55,8 +46,8 @@ function App() {
               </div>
               <div className='description-repo'>
                 <div className='buttons'>
-                  <button title='View repository'><a href={repo.html_url} target="_blank"> <AiOutlineEye /> Repo</a></button>
-                  <button title='Click view Demo'><a href={repo.homepage} target="_blank"><TbHandClick /> Demo </a></button>
+                  <button title='View repository'><a href={repo.html_url} target="_blank" rel="noreferrer"> <AiOutlineEye /> Repo</a></button>
+                  <button title='Click view Demo'><a href={repo.homepage} target="_blank" rel="noreferrer"><TbHandClick /> Demo </a></button>
                 </div>
                 <p className='url_repo' style={{ display: "none" }}>{repo.clone_url}</p>
               </div>
